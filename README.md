@@ -1,0 +1,1 @@
+Esse repositório contém os arquivos do laboratório 2 de Sistemas da Informação I
