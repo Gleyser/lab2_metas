@@ -6,9 +6,6 @@ import javax.persistence.Query;
 
 import play.db.jpa.JPA;
 
-
-
-
 /**
  * Camada genérica para acesso ao Banco de Dados
  */
