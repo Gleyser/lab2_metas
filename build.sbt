@@ -4,16 +4,11 @@ version := "1.0-SNAPSHOT"
 
 libraryDependencies ++= Seq(
   javaJdbc,
-	cache,
-	javaJpa,
-	"org.apache.directory.api" % "apiall"
-	% "1.0.0M14",
-	"postgresql" % "postgresql" % "9.19011.
-	jdbc4",
-	"org.hibernate" % "hibernatecore"
-	% "4.2.3.Final",
-	"org.hibernate" % "hibernateentitymanager"
-	% "4.2.3.Final"
-)     
+  cache,
+  javaJpa,
+  "org.apache.directory.api" % "api-all" % "1.0.0-M14",
+  "postgresql" % "postgresql" % "9.1-901-1.jdbc4",
+  "org.hibernate" % "hibernate-core" % "4.2.3.Final",
+  "org.hibernate" % "hibernate-entitymanager" % "4.2.3.Final")     
 
 play.Project.playJavaSettings
