@@ -50,6 +50,17 @@ public class Sistema {
 		this.todasAsSemanas.get(meta.getSemana().getValor()).removerMeta(meta);
 		
 	}
+
+	public ArrayList<Meta> metasOrdenadasPorSemana() {
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		for (Semana semana : this.todasAsSemanas){
+			ArrayList<Meta> metas = semana.getTodasAsMetas();
+			for (Meta meta: metas){
+				retorno.add(meta);
+			}
+		}
+		return retorno;
+	}
 	
 	
 }

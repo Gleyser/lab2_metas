@@ -46,19 +46,6 @@ public class Meta {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((descricao == null) ? 0 : descricao.hashCode());
-		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
-		result = prime * result
-				+ ((prioridade == null) ? 0 : prioridade.hashCode());
-		result = prime * result + ((semana == null) ? 0 : semana.hashCode());
-		return result;
-	}
-
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -79,6 +66,12 @@ public class Meta {
 		if (semana != other.semana)
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Meta [descricao=" + descricao + ", prioridade=" + prioridade
+				+ ", semana=" + semana + ", estado=" + estado + "]";
 	}
 	
 	

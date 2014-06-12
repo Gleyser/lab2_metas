@@ -66,7 +66,7 @@ public class Semana {
 
 	public ArrayList<Meta> metasASerAlcancadas() {
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
-		for (Meta meta : todasAsMetas){
+		for (Meta meta : this.todasAsMetas){
 			if (meta.getEstado().equals(EstadoDaMeta.ASERALCANCADA)){
 				retorno.add(meta);
 			}
