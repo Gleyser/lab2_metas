@@ -3,10 +3,10 @@ package models;
 public class Meta {
 	private String descricao;
 	private Prioridade prioridade;
-	private Semana semana;
+	private IdentificadorDaSemana semana;
 	private EstadoDaMeta estado;
 			
-	public Meta(String descricao, Prioridade prioridade, Semana semana){
+	public Meta(String descricao, Prioridade prioridade, IdentificadorDaSemana semana){
 		this.descricao = descricao;
 		this.prioridade = prioridade;
 		this.semana = semana;
@@ -29,11 +29,11 @@ public class Meta {
 		this.prioridade = prioridade;
 	}
 
-	public Semana getSemana() {
+	public IdentificadorDaSemana getSemana() {
 		return semana;
 	}
 
-	public void setSemana(Semana semana) {
+	public void setSemana(IdentificadorDaSemana semana) {
 		this.semana = semana;
 	}
 
@@ -44,6 +44,7 @@ public class Meta {
 	public void setEstado(EstadoDaMeta estado) {
 		this.estado = estado;
 	}
+	
 	
 
 }
