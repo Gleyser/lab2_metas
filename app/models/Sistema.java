@@ -37,6 +37,10 @@ public class Sistema {
 	public Semana getSemana(IdentificadorDaSemana semana){
 		return this.todasAsSemanas.get(semana.getValor());
 	}
+
+	public Object numDeMetasAlcancadasNaSemana(IdentificadorDaSemana semana) {
+		return this.todasAsSemanas.get(semana.getValor()).metasAlcancadas().size();
+	}
 	
 	
 }

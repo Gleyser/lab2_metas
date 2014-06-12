@@ -57,6 +57,16 @@ public class Semana {
 		this.identificador = identificador;
 	}
 	
+	public ArrayList<Meta> metasAlcancadas(){
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		for (Meta meta : todasAsMetas){
+			if (meta.getEstado().equals(EstadoDaMeta.ALCANCADA)){
+				retorno.add(meta);
+			}
+		}
+		return retorno;
+	}
+	
 	
 
 }
