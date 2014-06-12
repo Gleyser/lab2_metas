@@ -41,6 +41,15 @@ public class Sistema {
 	public Object numDeMetasAlcancadasNaSemana(IdentificadorDaSemana semana) {
 		return this.todasAsSemanas.get(semana.getValor()).metasAlcancadas().size();
 	}
+
+	public Object numDeMetasASerAlcancadasNaSemana(IdentificadorDaSemana semana) {
+		return this.todasAsSemanas.get(semana.getValor()).metasASerAlcancadas().size();
+	}
+
+	public void removerMeta(Meta meta) {
+		this.todasAsSemanas.get(meta.getSemana().getValor()).removerMeta(meta);
+		
+	}
 	
 	
 }

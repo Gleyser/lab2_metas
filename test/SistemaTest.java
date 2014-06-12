@@ -68,5 +68,30 @@ public class SistemaTest {
 		Assert.assertEquals(3, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
 		Assert.assertEquals(2, sistema.numDeMetasAlcancadasNaSemana(IdentificadorDaSemana.SEMANA1));
 	}
+	
+	@Test
+	public void testaNumTotalDeMetasASerAlcancadasNaSemana(){
+		sistema.addMeta(meta1);
+		meta11.setEstado(EstadoDaMeta.ALCANCADA);
+		sistema.addMeta(meta11);
+		meta12.setEstado(EstadoDaMeta.ALCANCADA);
+		sistema.addMeta(meta12);
+		Assert.assertEquals(3, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+		Assert.assertEquals(1, sistema.numDeMetasASerAlcancadasNaSemana(IdentificadorDaSemana.SEMANA1));
+	}
+	
+	@Test
+	public void testaRemoverMetas(){
+		sistema.addMeta(meta1);
+		sistema.addMeta(meta11);
+		sistema.addMeta(meta12);
+		Assert.assertEquals(3, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+		sistema.removerMeta(meta1);
+		Assert.assertEquals(2, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+		sistema.removerMeta(meta11);
+		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+		sistema.removerMeta(meta3); // quando nao tem a meta, o metodo de remover nao faz nada
+		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+	}
 
 }

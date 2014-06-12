@@ -29,9 +29,6 @@ public class Semana {
 		return this.todasAsMetas.size();
 	}
 	
-	// falta total de metas por alcancar
-	// falta total de metas alcancadas
-	
 	public boolean contenhoMeta(Meta metaAPesquisar){
 		for (Meta meta : todasAsMetas){
 			if (meta.equals(metaAPesquisar)){
@@ -61,6 +58,16 @@ public class Semana {
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
 		for (Meta meta : todasAsMetas){
 			if (meta.getEstado().equals(EstadoDaMeta.ALCANCADA)){
+				retorno.add(meta);
+			}
+		}
+		return retorno;
+	}
+
+	public ArrayList<Meta> metasASerAlcancadas() {
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		for (Meta meta : todasAsMetas){
+			if (meta.getEstado().equals(EstadoDaMeta.ASERALCANCADA)){
 				retorno.add(meta);
 			}
 		}
