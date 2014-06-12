@@ -44,6 +44,42 @@ public class Meta {
 	public void setEstado(EstadoDaMeta estado) {
 		this.estado = estado;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+		result = prime * result
+				+ ((prioridade == null) ? 0 : prioridade.hashCode());
+		result = prime * result + ((semana == null) ? 0 : semana.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Meta other = (Meta) obj;
+		if (descricao == null) {
+			if (other.descricao != null)
+				return false;
+		} else if (!descricao.equals(other.descricao))
+			return false;
+		if (estado != other.estado)
+			return false;
+		if (prioridade != other.prioridade)
+			return false;
+		if (semana != other.semana)
+			return false;
+		return true;
+	}
 	
 	
 

@@ -31,6 +31,15 @@ public class Semana {
 	
 	// falta total de metas por alcancar
 	// falta total de metas alcancadas
+	
+	public boolean contenhoMeta(Meta metaAPesquisar){
+		for (Meta meta : todasAsMetas){
+			if (meta.equals(metaAPesquisar)){
+				return true;
+			}
+		}
+		return false;
+	}
 
 	public ArrayList<Meta> getTodasAsMetas() {
 		return todasAsMetas;

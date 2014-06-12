@@ -30,5 +30,13 @@ public class Sistema {
 		this.todasAsSemanas = todasAsSemanas;
 	}
 	
+	public int numDeMetasNaSemana(IdentificadorDaSemana semana){
+		return this.todasAsSemanas.get(semana.getValor()).totalDeMetas();
+	}
+	
+	public Semana getSemana(IdentificadorDaSemana semana){
+		return this.todasAsSemanas.get(semana.getValor());
+	}
+	
 	
 }
