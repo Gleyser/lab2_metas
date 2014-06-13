@@ -64,7 +64,12 @@ public class Sistema {
 
 	public ArrayList<Meta> metasOrdenadasPorPrioridade() {
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
-		for (Semana semana : this.todasAsSemanas){
+		retorno.addAll(retornaMetasOrdenadasPelaPrioridadeAlta());
+		retorno.addAll(retornaMetasOrdenadasPelaPrioridadeMedia());
+		retorno.addAll(retornaMetasOrdenadasPelaPrioridadeBaixa());
+		return retorno;
+		
+		/*for (Semana semana : this.todasAsSemanas){
 			ArrayList<Meta> metasComPrioridadeAlta = semana.metasComPrioridadeAlta();
 			for (Meta meta: metasComPrioridadeAlta){
 				retorno.add(meta);
@@ -78,6 +83,39 @@ public class Sistema {
 			}
 		}
 		
+		for (Semana semana : this.todasAsSemanas){
+			ArrayList<Meta> metasComPrioridadeBaixa = semana.metasComPrioridadeBaixa();
+			for (Meta meta: metasComPrioridadeBaixa){
+				retorno.add(meta);
+			}
+		}
+		return retorno;*/
+	}
+	
+	private ArrayList<Meta> retornaMetasOrdenadasPelaPrioridadeAlta(){
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		for (Semana semana : this.todasAsSemanas){
+			ArrayList<Meta> metasComPrioridadeAlta = semana.metasComPrioridadeAlta();
+			for (Meta meta: metasComPrioridadeAlta){
+				retorno.add(meta);
+			}
+		}
+		return retorno;
+	}
+	
+	private ArrayList<Meta> retornaMetasOrdenadasPelaPrioridadeMedia(){
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		for (Semana semana : this.todasAsSemanas){
+			ArrayList<Meta> metasComPrioridadeMedia = semana.metasComPrioridadeMedia();
+			for (Meta meta: metasComPrioridadeMedia){
+				retorno.add(meta);
+			}
+		}
+		return retorno;
+	}
+	
+	private ArrayList<Meta> retornaMetasOrdenadasPelaPrioridadeBaixa(){
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
 		for (Semana semana : this.todasAsSemanas){
 			ArrayList<Meta> metasComPrioridadeBaixa = semana.metasComPrioridadeBaixa();
 			for (Meta meta: metasComPrioridadeBaixa){
