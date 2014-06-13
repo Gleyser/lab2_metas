@@ -67,29 +67,8 @@ public class Sistema {
 		retorno.addAll(retornaMetasOrdenadasPelaPrioridadeAlta());
 		retorno.addAll(retornaMetasOrdenadasPelaPrioridadeMedia());
 		retorno.addAll(retornaMetasOrdenadasPelaPrioridadeBaixa());
-		return retorno;
+		return retorno;		
 		
-		/*for (Semana semana : this.todasAsSemanas){
-			ArrayList<Meta> metasComPrioridadeAlta = semana.metasComPrioridadeAlta();
-			for (Meta meta: metasComPrioridadeAlta){
-				retorno.add(meta);
-			}
-		}
-		
-		for (Semana semana : this.todasAsSemanas){
-			ArrayList<Meta> metasComPrioridadeMedia = semana.metasComPrioridadeMedia();
-			for (Meta meta: metasComPrioridadeMedia){
-				retorno.add(meta);
-			}
-		}
-		
-		for (Semana semana : this.todasAsSemanas){
-			ArrayList<Meta> metasComPrioridadeBaixa = semana.metasComPrioridadeBaixa();
-			for (Meta meta: metasComPrioridadeBaixa){
-				retorno.add(meta);
-			}
-		}
-		return retorno;*/
 	}
 	
 	private ArrayList<Meta> retornaMetasOrdenadasPelaPrioridadeAlta(){
