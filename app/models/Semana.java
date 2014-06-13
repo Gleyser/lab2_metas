@@ -55,21 +55,17 @@ public class Semana {
 	}
 	
 	public ArrayList<Meta> metasAlcancadas(){
-		ArrayList<Meta> retorno = new ArrayList<Meta>();
-		for (Meta meta : todasAsMetas){
-			if (meta.getEstado().equals(EstadoDaMeta.ALCANCADA)){
-				retorno.add(meta);
-			}
-		}
-		return retorno;
+		return  retornaMetasComBaseNoEstado(EstadoDaMeta.ALCANCADA);
+		
 	}
 
 	public ArrayList<Meta> metasASerAlcancadas() {
-		return  retornaMetasDeAcordoComParamentroDeEntrada(EstadoDaMeta.ASERALCANCADA);
+		return  retornaMetasComBaseNoEstado(EstadoDaMeta.ASERALCANCADA);
 		
 	}
 	
-	private ArrayList<Meta> retornaMetasDeAcordoComParamentroDeEntrada(EstadoDaMeta estado){
+	// Retorna de acordo com o estado que for passado na entrada
+	private ArrayList<Meta> retornaMetasComBaseNoEstado(EstadoDaMeta estado){
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
 		for (Meta meta : this.todasAsMetas){
 			if (meta.getEstado().equals(estado)){
@@ -80,29 +76,25 @@ public class Semana {
 	}
 	
 	public ArrayList<Meta> metasComPrioridadeAlta() {
-		ArrayList<Meta> retorno = new ArrayList<Meta>();
-		for (Meta meta : this.todasAsMetas){
-			if (meta.getPrioridade().equals(Prioridade.ALTA)){
-				retorno.add(meta);
-			}
-		}
-		return retorno;
+		return retornaMetasComBaseNaPrioridade(Prioridade.ALTA);
+		
 	}
 	
 	public ArrayList<Meta> metasComPrioridadeMedia() {
-		ArrayList<Meta> retorno = new ArrayList<Meta>();
-		for (Meta meta : this.todasAsMetas){
-			if (meta.getPrioridade().equals(Prioridade.MEDIA)){
-				retorno.add(meta);
-			}
-		}
-		return retorno;
+		return retornaMetasComBaseNaPrioridade(Prioridade.MEDIA);
+		
 	}
 	
 	public ArrayList<Meta> metasComPrioridadeBaixa() {
+		return retornaMetasComBaseNaPrioridade(Prioridade.BAIXA);
+		
+	}
+	
+	// Retorna de acordo com a prioridade que for passado na entrada
+	private ArrayList<Meta> retornaMetasComBaseNaPrioridade(Prioridade prioridade){
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
 		for (Meta meta : this.todasAsMetas){
-			if (meta.getPrioridade().equals(Prioridade.BAIXA)){
+			if (meta.getPrioridade().equals(prioridade)){
 				retorno.add(meta);
 			}
 		}
