@@ -107,5 +107,19 @@ public class SistemaTest {
 		Assert.assertEquals(meta4, sistema.metasOrdenadasPorSemana().get(3));
 		Assert.assertEquals(meta5, sistema.metasOrdenadasPorSemana().get(4));
 	}
+	
+	@Test
+	public void testaOrdenarPelaPrioridade(){
+		sistema.addMeta(meta1);
+		sistema.addMeta(meta2);
+		sistema.addMeta(meta3);
+		sistema.addMeta(meta4);
+		sistema.addMeta(meta5);
+		Assert.assertEquals(meta1, sistema.metasOrdenadasPorPrioridade().get(0));
+		Assert.assertEquals(meta2, sistema.metasOrdenadasPorPrioridade().get(1));
+		Assert.assertEquals(meta5, sistema.metasOrdenadasPorPrioridade().get(2));
+		Assert.assertEquals(meta3, sistema.metasOrdenadasPorPrioridade().get(3));
+		Assert.assertEquals(meta4, sistema.metasOrdenadasPorPrioridade().get(4));
+	}
 
 }

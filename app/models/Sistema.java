@@ -61,6 +61,11 @@ public class Sistema {
 		}
 		return retorno;
 	}
+
+	public ArrayList<Meta> metasOrdenadasPorPrioridade() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }
