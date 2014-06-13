@@ -63,9 +63,29 @@ public class Sistema {
 	}
 
 	public ArrayList<Meta> metasOrdenadasPorPrioridade() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		for (Semana semana : this.todasAsSemanas){
+			ArrayList<Meta> metasComPrioridadeAlta = semana.metasComPrioridadeAlta();
+			for (Meta meta: metasComPrioridadeAlta){
+				retorno.add(meta);
+			}
+		}
+		
+		for (Semana semana : this.todasAsSemanas){
+			ArrayList<Meta> metasComPrioridadeMedia = semana.metasComPrioridadeMedia();
+			for (Meta meta: metasComPrioridadeMedia){
+				retorno.add(meta);
+			}
+		}
+		
+		for (Semana semana : this.todasAsSemanas){
+			ArrayList<Meta> metasComPrioridadeBaixa = semana.metasComPrioridadeBaixa();
+			for (Meta meta: metasComPrioridadeBaixa){
+				retorno.add(meta);
+			}
+		}
+		return retorno;
 	}
-	
+
 	
 }

@@ -74,6 +74,35 @@ public class Semana {
 		return retorno;
 	}
 	
+	public ArrayList<Meta> metasComPrioridadeAlta() {
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		for (Meta meta : this.todasAsMetas){
+			if (meta.getPrioridade().equals(Prioridade.ALTA)){
+				retorno.add(meta);
+			}
+		}
+		return retorno;
+	}
+	
+	public ArrayList<Meta> metasComPrioridadeMedia() {
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		for (Meta meta : this.todasAsMetas){
+			if (meta.getPrioridade().equals(Prioridade.MEDIA)){
+				retorno.add(meta);
+			}
+		}
+		return retorno;
+	}
+	
+	public ArrayList<Meta> metasComPrioridadeBaixa() {
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		for (Meta meta : this.todasAsMetas){
+			if (meta.getPrioridade().equals(Prioridade.BAIXA)){
+				retorno.add(meta);
+			}
+		}
+		return retorno;
+	}
 	
 
 }
