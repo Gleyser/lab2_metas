@@ -65,9 +65,14 @@ public class Semana {
 	}
 
 	public ArrayList<Meta> metasASerAlcancadas() {
+		return  retornaMetasDeAcordoComParamentroDeEntrada(EstadoDaMeta.ASERALCANCADA);
+		
+	}
+	
+	private ArrayList<Meta> retornaMetasDeAcordoComParamentroDeEntrada(EstadoDaMeta estado){
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
 		for (Meta meta : this.todasAsMetas){
-			if (meta.getEstado().equals(EstadoDaMeta.ASERALCANCADA)){
+			if (meta.getEstado().equals(estado)){
 				retorno.add(meta);
 			}
 		}

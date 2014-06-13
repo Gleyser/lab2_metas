@@ -96,6 +96,7 @@ public class SistemaTest {
 	
 	@Test
 	public void testaOrdenarPelaSemana(){
+		// Estão sendo adicionados fora de ordem de forma proposital
 		sistema.addMeta(meta1);
 		sistema.addMeta(meta4);
 		sistema.addMeta(meta3);
