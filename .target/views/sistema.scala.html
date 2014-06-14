@@ -1,0 +1,74 @@
+@(sistema: String)(versaoDoPlay : String)
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>@sistema</title>
+		<link href="@routes.Assets.at("css/bootstrap.min.css")" rel="stylesheet" media="screen">
+		<link rel="stylesheet" media="screen"
+		href="@routes.Assets.at("stylesheets/main.css")">
+		<link rel="shortcut icon" type="image/png"
+		href="@routes.Assets.at("images/favicon.png")">
+		<script
+		src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")"
+		type="text/javascript">
+		</script>
+		
+	</head>
+	<body>		
+		<center><h1><b>@sistema</b></h1></center>
+		<div class="masthead">
+       
+        <ul class="nav nav-pills">
+          <li class="active"><a href="index.html">Sistema</a></li>
+          <li><a href="MUDAR">Ordenar por Semana</a></li>
+          <li><a href="MUDAR">Ordenar por Prioridade</a></li>
+        </ul>
+        
+        <br> <br>
+		<div class="container form-horizontal panel panel-primary text-info" >
+			<h2>Adicionar nova meta:</h2>
+			<center>
+            <input class="input-xxlarge" type="text" size="90" maxlength="80" placeholder="Escreva aqui uma meta a ser realizada">
+            <select>
+        		<option value="Semana1">Semana 1</option>
+       			<option value="Semana2">Semana 2</option>
+        		<option value="Semana3">Semana 3</option>
+       			<option value="Semana4">Semana 4</option>
+        		<option value="Semana5">Semana 5</option>
+        		<option value="Semana6">Semana 6</option>
+       		 </select>
+       		 <select>
+        		<option value="PrioridadeAlta">Prioridade ALTA</option>
+       			<option value="PrioridadeMedia">Prioridade MEDIA</option>
+        		<option value="PrioridadeBaixa">Prioridade BAIXA</option>
+       			
+       		 </select>
+       		 <ul class="pager">
+                    		<li><a href="MUDARAKI">Inserir</a></li>
+                	</ul>
+       		 
+            </center>
+              
+            </div>
+             <center>
+            <div>
+               
+                    <table class="table table-hover table-condensed" id="tabela-metas">
+                        <thead>
+                            <tr>
+                                <th class="text-center" width ="450">Meta</th>
+                                <th class="text-center" width ="20">Semana</th>
+                                <th class="text-center" width ="20">Prioridade</th>
+                                <th class="text-center" width = "25">Remover</th>
+                                
+                            </tr>
+                        </thead>
+                    </table>
+            </div>
+            </div>
+            </center>
+           
+		
+	</body>
+</html>

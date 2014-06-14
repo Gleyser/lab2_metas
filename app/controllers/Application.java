@@ -12,8 +12,8 @@ public class Application extends Controller {
     }
     
     public static Result sobre() {
-    	return ok(views.html.sobre.render(
-    			"Top 100 filmes Cult",
+    	return ok(views.html.sistema.render(
+    			"Sistema de Controle de Metas",
     			play.core.PlayVersion.current())
     			);
     	}
