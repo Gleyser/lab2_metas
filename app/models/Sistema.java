@@ -3,34 +3,28 @@ package models;
 import java.util.ArrayList;
 
 public class Sistema {
-	private ArrayList<Semana> todasAsSemanas;
+	private ArrayList<Meta> todasAsMetas;
 
 	
 	public Sistema(){
-		this.todasAsSemanas = new ArrayList<Semana>();
-		this.todasAsSemanas.add(new Semana(IdentificadorDaSemana.SEMANA1));
-		this.todasAsSemanas.add(new Semana(IdentificadorDaSemana.SEMANA2));
-		this.todasAsSemanas.add(new Semana(IdentificadorDaSemana.SEMANA3));
-		this.todasAsSemanas.add(new Semana(IdentificadorDaSemana.SEMANA4));
-		this.todasAsSemanas.add(new Semana(IdentificadorDaSemana.SEMANA5));
-		this.todasAsSemanas.add(new Semana(IdentificadorDaSemana.SEMANA6));
+		this.todasAsMetas = new ArrayList<Meta>();
+		
 		
 	}
 	
 	public void addMeta(Meta meta){
-		int identificador = meta.getSemana().getValor();
-		this.todasAsSemanas.get(identificador).addMeta(meta);
+		this.todasAsMetas.add(meta);
 	}
 
-	public ArrayList<Semana> getTodasAsSemanas() {
-		return todasAsSemanas;
+	public ArrayList<Meta> getTodasAsMetas() {
+		return this.todasAsMetas;
 	}
 
-	public void setTodasAsSemanas(ArrayList<Semana> todasAsSemanas) {
-		this.todasAsSemanas = todasAsSemanas;
+	public void setTodasAsMetas(ArrayList<Meta> todasAsMetas) {
+		this.todasAsMetas = todasAsMetas;
 	}
 	
-	public int numDeMetasNaSemana(IdentificadorDaSemana semana){
+	/*public int numDeMetasNaSemana(IdentificadorDaSemana semana){
 		return this.todasAsSemanas.get(semana.getValor()).totalDeMetas();
 	}
 	
@@ -103,6 +97,6 @@ public class Sistema {
 		}
 		return retorno;
 	}
-
+*/
 	
 }
