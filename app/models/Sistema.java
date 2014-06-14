@@ -24,6 +24,60 @@ public class Sistema {
 		this.todasAsMetas = todasAsMetas;
 	}
 	
+	public boolean contenhoMeta(Meta meta){
+		return this.todasAsMetas.contains(meta);
+	}
+
+	public int numDeMetasNaSemana(IdentificadorDaSemana semana) {
+		return metasPorSemana(semana).size();
+	}
+	
+	public ArrayList<Meta> metasPorSemana(IdentificadorDaSemana semana) {
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		for (Meta meta : this.todasAsMetas){
+			if (meta.getSemana().equals(semana)){
+				retorno.add(meta);
+			}
+		}
+		return retorno;
+	}
+
+	public Object numDeMetasAlcancadasNaSemana(IdentificadorDaSemana semana) {
+		return MetasNaSemanaPorEstado(semana, EstadoDaMeta.ALCANCADA).size();
+	}
+	
+	public Object numDeMetasASerAlcancadasNaSemana(IdentificadorDaSemana semana) {
+		return MetasNaSemanaPorEstado(semana, EstadoDaMeta.ASERALCANCADA).size();
+	}
+	
+	public ArrayList<Meta> MetasNaSemanaPorEstado(IdentificadorDaSemana semana, EstadoDaMeta estado) {
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		for (Meta meta : metasPorSemana(semana)){
+			if (meta.getEstado().equals(estado)){
+				retorno.add(meta);
+			}
+		}
+		return retorno;
+	}
+	
+	public void removerMeta(Meta meta) {
+		this.todasAsMetas.remove(meta);
+		
+	}
+	
+	public ArrayList<Meta> metasOrdenadasPorSemana() {
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA1));
+		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA2));
+		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA3));
+		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA4));
+		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA5));
+		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA6));
+		return retorno;
+	}
+
+	
+	
 	/*public int numDeMetasNaSemana(IdentificadorDaSemana semana){
 		return this.todasAsSemanas.get(semana.getValor()).totalDeMetas();
 	}

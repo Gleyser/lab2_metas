@@ -30,23 +30,23 @@ public class SistemaTest {
 	public void testaAdicionarMetaNoSistema(){
 		sistema.addMeta(meta1);
 		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
-		Assert.assertTrue(sistema.getSemana(IdentificadorDaSemana.SEMANA1).contenhoMeta(meta1));
+		Assert.assertTrue(sistema.contenhoMeta(meta1));
 		
 		sistema.addMeta(meta2);
 		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA2));
-		Assert.assertTrue(sistema.getSemana(IdentificadorDaSemana.SEMANA2).contenhoMeta(meta2));
+		Assert.assertTrue(sistema.contenhoMeta(meta2));
 		
 		sistema.addMeta(meta3);
 		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA3));
-		Assert.assertTrue(sistema.getSemana(IdentificadorDaSemana.SEMANA3).contenhoMeta(meta3));
+		Assert.assertTrue(sistema.contenhoMeta(meta3));
 		
 		sistema.addMeta(meta4);
 		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA4));
-		Assert.assertTrue(sistema.getSemana(IdentificadorDaSemana.SEMANA4).contenhoMeta(meta4));
+		Assert.assertTrue(sistema.contenhoMeta(meta4));
 		
 		sistema.addMeta(meta5);
 		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA5));
-		Assert.assertTrue(sistema.getSemana(IdentificadorDaSemana.SEMANA5).contenhoMeta(meta5));
+		Assert.assertTrue(sistema.contenhoMeta(meta5));
 				
 	}
 	
@@ -56,6 +56,8 @@ public class SistemaTest {
 		sistema.addMeta(meta11);
 		sistema.addMeta(meta12);
 		Assert.assertEquals(3, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+		sistema.addMeta(meta2);
+		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA2));
 	}
 	
 	@Test
