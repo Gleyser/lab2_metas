@@ -11,7 +11,7 @@ import javax.persistence.SequenceGenerator;
 public class Meta {
 	
 	// Gerador de Sequencia para o Id
-	// Todo Id tem que ter o GeneratedValue a nÃ£o ser que ele seja setado
+	// Todo Id tem que ter o GeneratedValue a não ser que ele seja setado
 	@Id
 	@SequenceGenerator(name = "META_SEQUENCE", sequenceName = "META_SEQUENCE", allocationSize = 1, initialValue = 0)
 	@GeneratedValue(strategy = GenerationType.TABLE)
@@ -25,6 +25,11 @@ public class Meta {
 	private IdentificadorDaSemana semana;
 	@Column
 	private EstadoDaMeta estado;
+	
+	// Construtor vazio para o Hibernate criar os objetos
+		public Meta(){
+			
+	}
 			
 	public Meta(String descricao, Prioridade prioridade, IdentificadorDaSemana semana){
 		this.descricao = descricao;
@@ -33,11 +38,6 @@ public class Meta {
 		this.estado = EstadoDaMeta.ASERALCANCADA;
 	}
 	
-	public Meta(){
-		
-	}
-
-
 	public String getDescricao() {
 		return descricao;
 	}

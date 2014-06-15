@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 @Entity(name = "Sistema")
 public class Sistema {
@@ -19,10 +19,11 @@ public class Sistema {
 	// Usar Id sempre Long
 	private Long id;
 	
-	@OneToMany (mappedBy = "metas", cascade = CascadeType.ALL)	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn
 	private ArrayList<Meta> todasAsMetas;
 
-	
+	// Construtor vazio para o Hibernate criar os objetos
 	public Sistema(){
 		this.todasAsMetas = new ArrayList<Meta>();
 				
