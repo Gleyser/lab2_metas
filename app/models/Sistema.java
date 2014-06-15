@@ -1,13 +1,8 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.*;
 
 @Entity(name = "Sistema")
@@ -21,7 +16,7 @@ public class Sistema {
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn
-	private ArrayList<Meta> todasAsMetas;
+	private List<Meta> todasAsMetas;
 
 	// Construtor vazio para o Hibernate criar os objetos
 	public Sistema(){
@@ -33,11 +28,11 @@ public class Sistema {
 		this.todasAsMetas.add(meta);
 	}
 
-	public ArrayList<Meta> getTodasAsMetas() {
+	public List<Meta> getTodasAsMetas() {
 		return this.todasAsMetas;
 	}
 
-	public void setTodasAsMetas(ArrayList<Meta> todasAsMetas) {
+	public void setTodasAsMetas(List<Meta> todasAsMetas) {
 		this.todasAsMetas = todasAsMetas;
 	}
 	
