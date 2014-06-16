@@ -53,6 +53,10 @@ public class Meta {
 	public void setPrioridade(Prioridade prioridade) {
 		this.prioridade = prioridade;
 	}
+	
+	public void setPrioridade(String prioridade) {
+		this.prioridade = Prioridade.valueOf(prioridade);
+	}
 
 	public IdentificadorDaSemana getSemana() {
 		return semana;
@@ -60,6 +64,10 @@ public class Meta {
 
 	public void setSemana(IdentificadorDaSemana semana) {
 		this.semana = semana;
+	}
+	
+	public void setSemana(String semana) {
+		this.semana = IdentificadorDaSemana.valueOf(semana);
 	}
 
 	public EstadoDaMeta getEstado() {

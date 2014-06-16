@@ -1,9 +1,9 @@
-@(sistema: String)(versaoDoPlay : String)
+@(metas: List[Meta])(metaForm: Form[Meta])
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>@sistema</title>
+		<title>Sistema de Controle de Metas</title>
 		<link href="@routes.Assets.at("css/bootstrap.min.css")" rel="stylesheet" media="screen">
 		<link rel="stylesheet" media="screen"
 		href="@routes.Assets.at("stylesheets/main.css")">
@@ -16,7 +16,7 @@
 		
 	</head>
 	<body>		
-		<center><h1><b>@sistema</b></h1></center>
+		<center><h1><b>Sistema de Controle de Metas</b></h1></center>
 		<div class="masthead">
        
         <ul class="nav nav-pills">
@@ -26,6 +26,7 @@
         </ul>
         
         <br> <br>
+        <form action="@routes.Application.newMeta()" method="post">
 		<div class="container form-horizontal panel panel-primary text-info" >
 			<h2>Adicionar nova meta:</h2>
 			<center>
@@ -44,30 +45,41 @@
         		<option value="PrioridadeBaixa">Prioridade BAIXA</option>
        			
        		 </select>
-       		 <ul class="pager">
-                    		<li><a href="MUDARAKI">Inserir</a></li>
-                	</ul>
-       		 
+       		
+       		<input type="submit" class="btn btn-primary" value="Inserir"> 
             </center>
               
             </div>
-             <center>
-            <div>
-               
-                    <table class="table table-hover table-condensed" id="tabela-metas">
-                        <thead>
-                            <tr>
-                                <th class="text-center" width ="450">Meta</th>
-                                <th class="text-center" width ="20">Semana</th>
-                                <th class="text-center" width ="20">Prioridade</th>
-                                <th class="text-center" width = "25">Remover</th>
-                                
-                            </tr>
-                        </thead>
-                    </table>
+                  
             </div>
+                    
+            
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Descri&ccedil;&atilde;o da Meta </th>
+                            <th>Semana </th>
+                            <th>Prioridade </th>
+                            <th>A&ccedil;&otilde;es </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @for(meta <- metas) {
+                        <tr>
+                            <td>@meta.getDescricao()</td>
+                            <td>@meta.getSemana()</td>
+                            <td>@meta.getEstado()</td>
+                            <td>
+                            <form action="MUDARAKI" method="post"> 
+                                <input type="submit" class="btn btn-danger" value="Apagar">
+                            </form> 
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
             </div>
-            </center>
            
 		
 	</body>

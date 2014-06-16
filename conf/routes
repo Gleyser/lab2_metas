@@ -8,4 +8,5 @@ GET     /                            controllers.Inicio.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
-GET 	/sistema				    controllers.Application.sobre()
+GET 	/sistema				    controllers.Application.sistema()
+POST    /sistema                    controllers.Application.newMeta()
