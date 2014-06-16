@@ -32,12 +32,13 @@ public class Application extends Controller {
 		List<Meta> result = getDao().findAllByClassName("Sistema");
 		// O formulario de metas
 		Form<Meta> filledForm = metaForm.bindFromRequest();
+		Meta meta = filledForm.get();
 		
 		if (filledForm.hasErrors()) {
 			return badRequest(views.html.sistema.render(result, filledForm));
 		} else {
 			// Persiste a meta criada
-			getDao().persist(filledForm.get());
+			getDao().persist(meta);
 			// Espelha no Banco de Dados
 			getDao().flush();
 			return redirect(routes.Application.sistema());
