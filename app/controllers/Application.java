@@ -36,7 +36,7 @@ public class Application extends Controller {
 		if (filledForm.hasErrors()) {
 			return badRequest(views.html.sistema.render(result, filledForm));
 		} else {
-			// Persiste o Livro criado
+			// Persiste a meta criada
 			getDao().persist(filledForm.get());
 			// Espelha no Banco de Dados
 			getDao().flush();
