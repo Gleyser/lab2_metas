@@ -29,7 +29,7 @@ public class Application extends Controller {
     @Transactional
 	public static Result newMeta() {
 		// Todos as Metas do Banco de Dados
-		List<Meta> result = getDao().findAllByClassName("Sistema");
+		List<Meta> result = getDao().findAllByClassName("Meta");
 		// O formulario de metas
 		Form<Meta> filledForm = metaForm.bindFromRequest();
 		Meta meta = filledForm.get();
@@ -45,17 +45,15 @@ public class Application extends Controller {
 		}
 	}
     
-   /* @Transactional
-   	public static Result metas() {
-    	
-    }
     @Transactional
-	public static Result books() {
-		// Todos os Livros do Banco de Dados
-		List<Livro> result = getDao().findAllByClassName("Livro");
-		return ok(views.html.index.render(result, bookForm));
-	}*/
-    
+	public static Result deleteMeta(Long id) {
+		
+		getDao().removeById(Meta.class, id);
+		// Espelha no banco de dados
+		getDao().flush();
+		return redirect(routes.Application.sistema());
+	}    
+      	
     public static GenericDAO getDao() {
 		return dao;
 	}
@@ -63,5 +61,7 @@ public class Application extends Controller {
 	public static void setDao(GenericDAO dao) {
 		Application.dao = dao;
 	}
+	
+	
 
 }

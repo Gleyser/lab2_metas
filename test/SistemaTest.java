@@ -17,35 +17,35 @@ public class SistemaTest {
 	@Before
 	public void Iniciar(){
 		sistema = new Sistema();
-		meta1 = new Meta("descricao0", Prioridade.ALTA, IdentificadorDaSemana.SEMANA1);
-		meta2 = new Meta("descricao1", Prioridade.ALTA, IdentificadorDaSemana.SEMANA2);
-		meta3 = new Meta("descricao2", Prioridade.MEDIA, IdentificadorDaSemana.SEMANA3);
-		meta4 = new Meta("descricao3", Prioridade.BAIXA, IdentificadorDaSemana.SEMANA4);
-		meta5 = new Meta("descricao4", Prioridade.ALTA, IdentificadorDaSemana.SEMANA5);
-		meta11 = new Meta("descricao0", Prioridade.BAIXA, IdentificadorDaSemana.SEMANA1);
-		meta12 = new Meta("descricao0", Prioridade.MEDIA, IdentificadorDaSemana.SEMANA1);
+		meta1 = new Meta("descricao0", "ALTA", "SEMANA1");
+		meta2 = new Meta("descricao1", "ALTA", "SEMANA2");
+		meta3 = new Meta("descricao2", "MEDIA", "SEMANA3");
+		meta4 = new Meta("descricao3", "BAIXA", "SEMANA4");
+		meta5 = new Meta("descricao4", "ALTA", "SEMANA5");
+		meta11 = new Meta("descricao0", "BAIXA", "SEMANA1");
+		meta12 = new Meta("descricao0", "MEDIA", "SEMANA1");
 	}
 	
 	@Test
 	public void testaAdicionarMetaNoSistema(){
 		sistema.addMeta(meta1);
-		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+		Assert.assertEquals(1, sistema.numDeMetasNaSemana("SEMANA1"));
 		Assert.assertTrue(sistema.contenhoMeta(meta1));
 		
 		sistema.addMeta(meta2);
-		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA2));
+		Assert.assertEquals(1, sistema.numDeMetasNaSemana("SEMANA2"));
 		Assert.assertTrue(sistema.contenhoMeta(meta2));
 		
 		sistema.addMeta(meta3);
-		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA3));
+		Assert.assertEquals(1, sistema.numDeMetasNaSemana("SEMANA3"));
 		Assert.assertTrue(sistema.contenhoMeta(meta3));
 		
 		sistema.addMeta(meta4);
-		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA4));
+		Assert.assertEquals(1, sistema.numDeMetasNaSemana("SEMANA4"));
 		Assert.assertTrue(sistema.contenhoMeta(meta4));
 		
 		sistema.addMeta(meta5);
-		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA5));
+		Assert.assertEquals(1, sistema.numDeMetasNaSemana("SEMANA5"));
 		Assert.assertTrue(sistema.contenhoMeta(meta5));
 				
 	}
@@ -55,31 +55,31 @@ public class SistemaTest {
 		sistema.addMeta(meta1);
 		sistema.addMeta(meta11);
 		sistema.addMeta(meta12);
-		Assert.assertEquals(3, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+		Assert.assertEquals(3, sistema.numDeMetasNaSemana("SEMANA1"));
 		sistema.addMeta(meta2);
-		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA2));
+		Assert.assertEquals(1, sistema.numDeMetasNaSemana("SEMANA2"));
 	}
 	
 	@Test
 	public void testaNumTotalDeMetasAlcancadasNaSemana(){
 		sistema.addMeta(meta1);
-		meta11.setEstado(EstadoDaMeta.ALCANCADA);
+		meta11.setEstado("ALCANCADA");
 		sistema.addMeta(meta11);
-		meta12.setEstado(EstadoDaMeta.ALCANCADA);
+		meta12.setEstado("ALCANCADA");
 		sistema.addMeta(meta12);
-		Assert.assertEquals(3, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
-		Assert.assertEquals(2, sistema.numDeMetasAlcancadasNaSemana(IdentificadorDaSemana.SEMANA1));
+		Assert.assertEquals(3, sistema.numDeMetasNaSemana("SEMANA1"));
+		Assert.assertEquals(2, sistema.numDeMetasAlcancadasNaSemana("SEMANA1"));
 	}
 	
 	@Test
 	public void testaNumTotalDeMetasASerAlcancadasNaSemana(){
 		sistema.addMeta(meta1);
-		meta11.setEstado(EstadoDaMeta.ALCANCADA);
+		meta11.setEstado("ALCANCADA");
 		sistema.addMeta(meta11);
-		meta12.setEstado(EstadoDaMeta.ALCANCADA);
+		meta12.setEstado("ALCANCADA");
 		sistema.addMeta(meta12);
-		Assert.assertEquals(3, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
-		Assert.assertEquals(1, sistema.numDeMetasASerAlcancadasNaSemana(IdentificadorDaSemana.SEMANA1));
+		Assert.assertEquals(3, sistema.numDeMetasNaSemana("SEMANA1"));
+		Assert.assertEquals(1, sistema.numDeMetasASerAlcancadasNaSemana("SEMANA1"));
 	}
 	
 	@Test
@@ -87,13 +87,13 @@ public class SistemaTest {
 		sistema.addMeta(meta1);
 		sistema.addMeta(meta11);
 		sistema.addMeta(meta12);
-		Assert.assertEquals(3, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+		Assert.assertEquals(3, sistema.numDeMetasNaSemana("SEMANA1"));
 		sistema.removerMeta(meta1);
-		Assert.assertEquals(2, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+		Assert.assertEquals(2, sistema.numDeMetasNaSemana("SEMANA1"));
 		sistema.removerMeta(meta11);
-		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+		Assert.assertEquals(1, sistema.numDeMetasNaSemana("SEMANA1"));
 		sistema.removerMeta(meta3); // quando nao tem a meta, o metodo de remover nao faz nada
-		Assert.assertEquals(1, sistema.numDeMetasNaSemana(IdentificadorDaSemana.SEMANA1));
+		Assert.assertEquals(1, sistema.numDeMetasNaSemana("SEMANA1"));
 	}
 	
 	@Test

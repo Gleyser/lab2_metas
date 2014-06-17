@@ -20,22 +20,22 @@ public class Meta {
 	@Column	
 	private String descricao;
 	@Column
-	private Prioridade prioridade;
+	private String prioridade;
 	@Column
-	private IdentificadorDaSemana semana;
+	private String semana;
 	@Column
-	private EstadoDaMeta estado;
+	private String estado;
 	
 	// Construtor vazio para o Hibernate criar os objetos
 		public Meta(){
-			
+			this.estado = "ASERALCANCADA";
 	}
 			
-	public Meta(String descricao, Prioridade prioridade, IdentificadorDaSemana semana){
+	public Meta(String descricao, String prioridade, String semana){
 		this.descricao = descricao;
 		this.prioridade = prioridade;
 		this.semana = semana;
-		this.estado = EstadoDaMeta.ASERALCANCADA;
+		this.estado = "ASERALCANCADA";
 	}
 	
 	public String getDescricao() {
@@ -46,36 +46,32 @@ public class Meta {
 		this.descricao = descricao;
 	}
 
-	public Prioridade getPrioridade() {
+	public String getPrioridade() {
 		return prioridade;
 	}
 
-	public void setPrioridade(Prioridade prioridade) {
+	public void setPrioridade(String prioridade) {
 		this.prioridade = prioridade;
 	}
-	
-	public void setPrioridade(String prioridade) {
-		this.prioridade = Prioridade.valueOf(prioridade);
-	}
 
-	public IdentificadorDaSemana getSemana() {
+	public String getSemana() {
 		return semana;
 	}
 
-	public void setSemana(IdentificadorDaSemana semana) {
+	public void setSemana(String semana) {
 		this.semana = semana;
 	}
-	
-	public void setSemana(String semana) {
-		this.semana = IdentificadorDaSemana.valueOf(semana);
-	}
 
-	public EstadoDaMeta getEstado() {
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(EstadoDaMeta estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+	
+	public void marcarComoAlcancada() {
+		this.estado = "ALCANCADA";
 	}
 
 	@Override

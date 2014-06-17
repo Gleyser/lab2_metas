@@ -40,11 +40,11 @@ public class Sistema {
 		return this.todasAsMetas.contains(meta);
 	}
 
-	public int numDeMetasNaSemana(IdentificadorDaSemana semana) {
+	public int numDeMetasNaSemana(String semana) {
 		return metasPorSemana(semana).size();
 	}
 	
-	public ArrayList<Meta> metasPorSemana(IdentificadorDaSemana semana) {
+	public ArrayList<Meta> metasPorSemana(String semana) {
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
 		for (Meta meta : this.todasAsMetas){
 			if (meta.getSemana().equals(semana)){
@@ -54,15 +54,15 @@ public class Sistema {
 		return retorno;
 	}
 
-	public Object numDeMetasAlcancadasNaSemana(IdentificadorDaSemana semana) {
-		return MetasNaSemanaPorEstado(semana, EstadoDaMeta.ALCANCADA).size();
+	public Object numDeMetasAlcancadasNaSemana(String semana) {
+		return MetasNaSemanaPorEstado(semana, "ALCANCADA").size();
 	}
 	
-	public Object numDeMetasASerAlcancadasNaSemana(IdentificadorDaSemana semana) {
-		return MetasNaSemanaPorEstado(semana, EstadoDaMeta.ASERALCANCADA).size();
+	public Object numDeMetasASerAlcancadasNaSemana(String semana) {
+		return MetasNaSemanaPorEstado(semana, "ASERALCANCADA").size();
 	}
 	
-	public ArrayList<Meta> MetasNaSemanaPorEstado(IdentificadorDaSemana semana, EstadoDaMeta estado) {
+	public ArrayList<Meta> MetasNaSemanaPorEstado(String semana, String estado) {
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
 		for (Meta meta : metasPorSemana(semana)){
 			if (meta.getEstado().equals(estado)){
@@ -80,12 +80,12 @@ public class Sistema {
 	
 	public ArrayList<Meta> metasOrdenadasPorSemana() {
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
-		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA1));
-		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA2));
-		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA3));
-		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA4));
-		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA5));
-		retorno.addAll(metasPorSemana(IdentificadorDaSemana.SEMANA6));
+		retorno.addAll(metasPorSemana("SEMANA1"));
+		retorno.addAll(metasPorSemana("SEMANA2"));
+		retorno.addAll(metasPorSemana("SEMANA3"));
+		retorno.addAll(metasPorSemana("SEMANA4"));
+		retorno.addAll(metasPorSemana("SEMANA5"));
+		retorno.addAll(metasPorSemana("SEMANA6"));
 		return retorno;
 	}
 	
@@ -98,18 +98,18 @@ public class Sistema {
 	}
 		
 	public ArrayList<Meta> metasComPrioridadeAlta() {
-		return metasPorPrioridade(Prioridade.ALTA);
+		return metasPorPrioridade("ALTA");
 	}
 	
 	public ArrayList<Meta> metasComPrioridadeMedia() {
-		return metasPorPrioridade(Prioridade.MEDIA);
+		return metasPorPrioridade("MEDIA");
 	}
 	
 	public ArrayList<Meta> metasComPrioridadeBaixa() {
-		return metasPorPrioridade(Prioridade.BAIXA);
+		return metasPorPrioridade("BAIXA");
 	}
 	
-	public ArrayList<Meta> metasPorPrioridade(Prioridade prioridade) {
+	public ArrayList<Meta> metasPorPrioridade(String prioridade) {
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
 		for (Meta meta : this.todasAsMetas){
 			if (meta.getPrioridade().equals(prioridade)){

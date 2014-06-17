@@ -1,5 +1,6 @@
 @(metas: List[Meta])(metaForm: Form[Meta])
 
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -29,30 +30,30 @@
         <form action="@routes.Application.newMeta()" method="post">
 		<div class="container form-horizontal panel panel-primary text-info" >
 			<h2>Adicionar nova meta:</h2>
-			<center>
-            <input class="input-xxlarge" type="text" size="90" maxlength="80" placeholder="Escreva aqui uma meta a ser realizada">
-            <select>
-        		<option value="Semana1">Semana 1</option>
-       			<option value="Semana2">Semana 2</option>
-        		<option value="Semana3">Semana 3</option>
-       			<option value="Semana4">Semana 4</option>
-        		<option value="Semana5">Semana 5</option>
-        		<option value="Semana6">Semana 6</option>
+			
+            <input class="input-xxlarge" type="text" size="90" maxlength="80" placeholder="Escreva aqui uma meta a ser realizada" name="descricao">
+            <select name="semana">
+        		<option value="SEMANA1">Semana 1</option>
+       			<option value="SEMANA2">Semana 2</option>
+        		<option value="SEMANA3">Semana 3</option>
+       			<option value="SEMANA4">Semana 4</option>
+        		<option value="SEMANA5">Semana 5</option>
+        		<option value="SEMANA6">Semana 6</option>
        		 </select>
-       		 <select>
-        		<option value="PrioridadeAlta">Prioridade ALTA</option>
-       			<option value="PrioridadeMedia">Prioridade MEDIA</option>
-        		<option value="PrioridadeBaixa">Prioridade BAIXA</option>
+       		 <select name="prioridade">
+        		<option value="ALTA">Prioridade ALTA</option>
+       			<option value="MEDIA">Prioridade MEDIA</option>
+        		<option value="BAIXA">Prioridade BAIXA</option>
        			
        		 </select>
        		
-       		<input type="submit" class="btn btn-primary" value="Inserir"> 
-            </center>
+       		<input type="submit" class="btn btn-primary" value="Inserir">  </div>
+             </form>
               
             </div>
                   
-            </div>
-                    
+           
+                   
             
             <div class="table-responsive">
                 <table class="table table-hover">

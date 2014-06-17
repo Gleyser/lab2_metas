@@ -9,15 +9,15 @@ public class MetaTest {
 	
 	@Before
 	public void CriaMeta(){
-		novaMeta = new Meta("descricao", Prioridade.ALTA, IdentificadorDaSemana.SEMANA1);
+		novaMeta = new Meta("descricao", "ALTA", "SEMANA1");
 	}
 	
 	@Test
 	public void testaCriarMeta(){
 		Assert.assertEquals("descricao", novaMeta.getDescricao());
-		Assert.assertEquals(Prioridade.ALTA, novaMeta.getPrioridade());
-		Assert.assertEquals(IdentificadorDaSemana.SEMANA1, novaMeta.getSemana());
-		Assert.assertEquals(EstadoDaMeta.ASERALCANCADA, novaMeta.getEstado());
+		Assert.assertEquals("ALTA", novaMeta.getPrioridade());
+		Assert.assertEquals("SEMANA1", novaMeta.getSemana());
+		Assert.assertEquals("ASERALCANCADA", novaMeta.getEstado());
 	}
 
 }
