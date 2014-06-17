@@ -52,8 +52,10 @@ public class Application extends Controller {
 		// Espelha no banco de dados
 		getDao().flush();
 		return redirect(routes.Application.sistema());
-	}    
-      	
+	}
+    
+    
+    	
     public static GenericDAO getDao() {
 		return dao;
 	}
