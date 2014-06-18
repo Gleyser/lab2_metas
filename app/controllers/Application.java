@@ -3,6 +3,7 @@ package controllers;
 
 import java.util.List;
 
+
 import models.Meta;
 import models.Sistema;
 import models.dao.GenericDAO;
@@ -50,6 +51,17 @@ public class Application extends Controller {
 	public static Result deleteMeta(Long id) {
 		
 		getDao().removeById(Meta.class, id);
+		// Espelha no banco de dados
+		getDao().flush();
+		return redirect(routes.Application.sistema());
+	}
+    
+    @Transactional
+	public static Result mudarEstadoDaMeta(Long id) {
+		Meta metaAlcancada = getDao().findByEntityId(Meta.class, id);
+		metaAlcancada.setEstado("ALCANCADA");
+		getDao().removeById(Meta.class, id);
+		getDao().persist(metaAlcancada);
 		// Espelha no banco de dados
 		getDao().flush();
 		return redirect(routes.Application.sistema());

@@ -1,4 +1,4 @@
-@(sistema: Sistema, metas: List[Meta])
+@(sistema: Sistema, metasAlcancadas: List[Meta], metasASerAlcancadas: List[Meta])
 
 
 <div class="container form-horizontal panel panel-primary text-info" >
@@ -10,6 +10,7 @@
             <h4>Voc&ecirc; possui @sistema.numDeMetasNaSemana("SEMANA6") metas(s) na Semana 6, sendo @sistema.numDeMetasAlcancadasNaSemana("SEMANA6") alcan&ccedil;adas e @sistema.numDeMetasASerAlcancadasNaSemana("SEMANA6") a serem alcan&ccedil;adas</h4>
 </div>
 
+<h2>Metas a ser alcan&ccedil;adas</h2>
 <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -17,24 +18,24 @@
                             <th>Descri&ccedil;&atilde;o da Meta </th>
                             <th>Semana </th>
                             <th>Prioridade </th>
-                             <th>Estado </th>
+                             
                             <th>A&ccedil;&otilde;es </th>
                         </tr>
                     </thead>
                     <tbody>
-                    @for(meta <- metas) {
+                    @for(meta <- metasASerAlcancadas) {
                     	
                         <tr>
                             <td>@meta.getDescricao()</td>
                             <td>@meta.getSemana()</td>
                             <td>@meta.getPrioridade()</td>
-                            <td>@meta.getEstado()</td>
+                            
                             <td>
                             <form action="@routes.Application.deleteMeta(meta.getId())" method="post"> 
                                 <input type="submit" class="btn btn-danger" value="Apagar">
                             </form> 
                             
-                            <form action="MUDARAKI" method="post"> 
+                            <form action="@routes.Application.mudarEstadoDaMeta(meta.getId())" method="post"> 
                                 <input type="submit" class="btn btn-primary" value="Realizei">
                             </form> 
                             </td>
@@ -45,6 +46,39 @@
                 </table>
             </div>
 
+<h2>Metas alcan&ccedil;adas</h2>
+<div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Descri&ccedil;&atilde;o da Meta </th>
+                            <th>Semana </th>
+                            <th>Prioridade </th>
+                            
+                            <th>A&ccedil;&otilde;es </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @for(meta <- metasAlcancadas) {
+                    	
+                        <tr>
+                            <td><strike>@meta.getDescricao()</strike></td>
+                            <td><strike>@meta.getSemana()</strike></td>
+                            <td><strike>@meta.getPrioridade()</strike></td>
+                           
+                            <td>
+                            <form action="@routes.Application.deleteMeta(meta.getId())" method="post"> 
+                                <input type="submit" class="btn btn-danger" value="Apagar">
+                            </form> 
+                            
+                            
+                            </td>
+                        </tr>
+                        
+                    }
+                    </tbody>
+                </table>
+            </div>
 
  
  

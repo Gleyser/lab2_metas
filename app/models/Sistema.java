@@ -62,6 +62,29 @@ public class Sistema {
 		return MetasNaSemanaPorEstado(semana, "ASERALCANCADA").size();
 	}
 	
+	public List<Meta> metasAlcancadas() {
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA1","ALCANCADA"));
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA2","ALCANCADA"));
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA3","ALCANCADA"));
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA4","ALCANCADA"));
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA5","ALCANCADA"));
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA6","ALCANCADA"));
+		return retorno;
+	}
+	
+	public List<Meta> metasASerAlcancadas() {
+		ArrayList<Meta> retorno = new ArrayList<Meta>();
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA1","ASERALCANCADA"));
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA2","ASERALCANCADA"));
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA3","ASERALCANCADA"));
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA4","ASERALCANCADA"));
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA5","ASERALCANCADA"));
+		retorno.addAll(MetasNaSemanaPorEstado("SEMANA6","ASERALCANCADA"));
+		return retorno;
+		
+	}
+	
 	public ArrayList<Meta> MetasNaSemanaPorEstado(String semana, String estado) {
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
 		for (Meta meta : metasPorSemana(semana)){
