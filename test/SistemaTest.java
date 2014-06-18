@@ -124,5 +124,21 @@ public class SistemaTest {
 		Assert.assertEquals(meta3, sistema.metasOrdenadasPorPrioridade().get(3));
 		Assert.assertEquals(meta4, sistema.metasOrdenadasPorPrioridade().get(4));
 	}
+	
+	@Test
+	public void testaRetornoDeMetasAlcancadasOuASerAlcancadas(){
+		meta1.setEstado("ALCANCADA");
+		sistema.addMeta(meta1);
+		meta2.setEstado("ALCANCADA");
+		sistema.addMeta(meta2);
+		sistema.addMeta(meta3);
+		sistema.addMeta(meta4);
+		sistema.addMeta(meta5);
+		Assert.assertEquals(meta1, sistema.metasAlcancadas().get(0));
+		Assert.assertEquals(meta2, sistema.metasAlcancadas().get(1));
+		Assert.assertEquals(meta3, sistema.metasASerAlcancadas().get(0));
+		Assert.assertEquals(meta4, sistema.metasASerAlcancadas().get(1));
+		Assert.assertEquals(meta5, sistema.metasASerAlcancadas().get(2));
+	}
 
 }

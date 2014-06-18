@@ -1,4 +1,4 @@
-@(metas: List[Meta])(metaForm: Form[Meta])
+@(sistema: Sistema)(metaForm: Form[Meta])
 
 
 <!DOCTYPE html>
@@ -16,20 +16,23 @@
 		</script>
 		
 	</head>
-	<body>		
+	<body>	
+	 
+        	
 		<center><h1><b>Sistema de Controle de Metas</b></h1></center>
-		<div class="masthead">
-       
-        <ul class="nav nav-pills">
-          <li class="active"><a href="index.html">Sistema</a></li>
-          <li><a href="MUDAR">Ordenar por Semana</a></li>
-          <li><a href="MUDAR">Ordenar por Prioridade</a></li>
+		<ul class="nav nav-pills">
+          <li><a href="/""><action= > In&iacute;cio</a></li>
+          <li><a href="/metasPorSemana">Ordenar por Semana</a></li>
+          <li><a href="/metasPorPrioridade">Ordenar por Prioridade</a></li>
         </ul>
+		<div class="masthead">
+             
         
         <br> <br>
         <form action="@routes.Application.newMeta()" method="post">
 		<div class="container form-horizontal panel panel-primary text-info" >
 			<h2>Adicionar nova meta:</h2>
+			
 			
             <input class="input-xxlarge" type="text" size="90" maxlength="80" placeholder="Escreva aqui uma meta a ser realizada" name="descricao">
             <select name="semana">
@@ -49,38 +52,12 @@
        		
        		<input type="submit" class="btn btn-primary" value="Inserir">  </div>
              </form>
-              
-            </div>
-                  
-           
-                   
+             
             
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Descri&ccedil;&atilde;o da Meta </th>
-                            <th>Semana </th>
-                            <th>Prioridade </th>
-                            <th>A&ccedil;&otilde;es </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @for(meta <- metas) {
-                        <tr>
-                            <td>@meta.getDescricao()</td>
-                            <td>@meta.getSemana()</td>
-                            <td>@meta.getEstado()</td>
-                            <td>
-                            <form action="MUDARAKI" method="post"> 
-                                <input type="submit" class="btn btn-danger" value="Apagar">
-                            </form> 
-                            </td>
-                        </tr>
-                    }
-                    </tbody>
-                </table>
-            </div>
+       
+       @semanas(sistema, sistema.metasAlcancadas(), sistema.metasASerAlcancadas() )
+          
+            
            
 		
 	</body>
