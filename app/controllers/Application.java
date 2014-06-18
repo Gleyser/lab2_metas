@@ -17,14 +17,18 @@ import views.html.*;
 public class Application extends Controller {
 	static Form<Meta> metaForm = Form.form(Meta.class);
 	private static GenericDAO dao = new GenericDAOImpl();
+	private static boolean iniciando = true;
 
     @Transactional
     public static Result sistema() {
     	List<Meta> result = getDao().findAllByClassName("Meta");
     	Sistema sistema = new Sistema();
+    	
     	sistema.setTodasAsMetas(result);
     	return ok(views.html.sistema.render(sistema,metaForm));
     	}
+    
+    
     
     @Transactional
 	public static Result newMeta() {
