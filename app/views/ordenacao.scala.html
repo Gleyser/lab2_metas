@@ -1,0 +1,38 @@
+@(sistema: Sistema, metas: List[Meta], string: String)
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sistema de Controle de Metas</title>
+		<link href="@routes.Assets.at("css/bootstrap.min.css")" rel="stylesheet" media="screen">
+		<link rel="stylesheet" media="screen"
+		href="@routes.Assets.at("stylesheets/main.css")">
+		<link rel="shortcut icon" type="image/png"
+		href="@routes.Assets.at("images/favicon.png")">
+		<script
+		src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")"
+		type="text/javascript">
+		</script>
+		
+	</head>
+	<body>		
+		<center><h1><b>Metas ordenadas por @string</b></h1></center>
+		<ul class="nav nav-pills">
+          <li ><a href="/sistema""><action= > Voltar ao Sistema de Controle de Metas</a></li>
+         
+        </ul>
+       
+		<div class="masthead">
+		
+		
+         
+        
+       
+       @semanasAux(metas)
+          
+            
+           
+		
+	</body>
+</html>

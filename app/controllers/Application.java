@@ -4,6 +4,7 @@ package controllers;
 import java.util.List;
 
 import models.Meta;
+import models.Sistema;
 import models.dao.GenericDAO;
 import models.dao.GenericDAOImpl;
 import play.data.Form;
@@ -16,14 +17,12 @@ public class Application extends Controller {
 	static Form<Meta> metaForm = Form.form(Meta.class);
 	private static GenericDAO dao = new GenericDAOImpl();
 
-    public static Result index() {
-        return ok(index.render("Your new application is ready."));
-    }
-    
     @Transactional
     public static Result sistema() {
     	List<Meta> result = getDao().findAllByClassName("Meta");
-    	return ok(views.html.sistema.render(result,	metaForm));
+    	Sistema sistema = new Sistema();
+    	sistema.setTodasAsMetas(result);
+    	return ok(views.html.sistema.render(sistema,metaForm));
     	}
     
     @Transactional
@@ -33,9 +32,11 @@ public class Application extends Controller {
 		// O formulario de metas
 		Form<Meta> filledForm = metaForm.bindFromRequest();
 		Meta meta = filledForm.get();
+		Sistema sistema = new Sistema();
+    	sistema.setTodasAsMetas(result);
 		
 		if (filledForm.hasErrors()) {
-			return badRequest(views.html.sistema.render(result, filledForm));
+			return badRequest(views.html.sistema.render(sistema, filledForm));
 		} else {
 			// Persiste a meta criada
 			getDao().persist(meta);
@@ -53,6 +54,22 @@ public class Application extends Controller {
 		getDao().flush();
 		return redirect(routes.Application.sistema());
 	}
+    
+    @Transactional
+    public static Result metasPorSemana() {
+    	List<Meta> result = getDao().findAllByClassName("Meta");
+    	Sistema sistema = new Sistema();
+    	sistema.setTodasAsMetas(result);
+    	return ok(views.html.ordenacao.render(sistema,sistema.metasOrdenadasPorSemana(), "Semana"));
+    	}
+    
+    @Transactional
+    public static Result metasPorPrioridade() {
+    	List<Meta> result = getDao().findAllByClassName("Meta");
+    	Sistema sistema = new Sistema();
+    	sistema.setTodasAsMetas(result);
+    	return ok(views.html.ordenacao.render(sistema,sistema.metasOrdenadasPorPrioridade(), "Prioridade"));
+    	}
     
     
     	

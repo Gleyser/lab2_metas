@@ -1,0 +1,41 @@
+@(metas: List[Meta])
+
+
+<div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Descri&ccedil;&atilde;o da Meta </th>
+                            <th>Semana </th>
+                            <th>Prioridade </th>
+                             <th>Estado </th>
+                            <th>A&ccedil;&otilde;es </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @for(meta <- metas) {
+                    	
+                        <tr>
+                            <td>@meta.getDescricao()</td>
+                            <td>@meta.getSemana()</td>
+                            <td>@meta.getPrioridade()</td>
+                            <td>@meta.getEstado()</td>
+                            <td>
+                            <form action="@routes.Application.deleteMeta(meta.getId())" method="post"> 
+                                <input type="submit" class="btn btn-danger" value="Apagar">
+                            </form> 
+                            
+                            <form action="MUDARAKI" method="post"> 
+                                <input type="submit" class="btn btn-primary" value="Realizei">
+                            </form> 
+                            </td>
+                        </tr>
+                        
+                    }
+                    </tbody>
+                </table>
+            </div>
+
+
+ 
+ 

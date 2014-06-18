@@ -54,11 +54,11 @@ public class Sistema {
 		return retorno;
 	}
 
-	public Object numDeMetasAlcancadasNaSemana(String semana) {
+	public int numDeMetasAlcancadasNaSemana(String semana) {
 		return MetasNaSemanaPorEstado(semana, "ALCANCADA").size();
 	}
 	
-	public Object numDeMetasASerAlcancadasNaSemana(String semana) {
+	public int numDeMetasASerAlcancadasNaSemana(String semana) {
 		return MetasNaSemanaPorEstado(semana, "ASERALCANCADA").size();
 	}
 	
@@ -78,7 +78,7 @@ public class Sistema {
 		
 	}
 	
-	public ArrayList<Meta> metasOrdenadasPorSemana() {
+	public List<Meta> metasOrdenadasPorSemana() {
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
 		retorno.addAll(metasPorSemana("SEMANA1"));
 		retorno.addAll(metasPorSemana("SEMANA2"));
@@ -89,7 +89,7 @@ public class Sistema {
 		return retorno;
 	}
 	
-	public ArrayList<Meta> metasOrdenadasPorPrioridade() {
+	public List<Meta> metasOrdenadasPorPrioridade() {
 		ArrayList<Meta> retorno = new ArrayList<Meta>();
 		retorno.addAll(metasComPrioridadeAlta());
 		retorno.addAll(metasComPrioridadeMedia());
